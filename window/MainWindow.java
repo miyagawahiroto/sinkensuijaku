@@ -9,6 +9,7 @@ public class MainWindow {
     private JLabel messageLabel;
     //画像を表示するラベル
     private JLabel gazouLabel;
+    
     //アイコン作成
     ImageIcon icon = new ImageIcon("./img/ura.png");
     ImageIcon icon1 = new ImageIcon("./img/1S.png");
@@ -21,6 +22,7 @@ public class MainWindow {
     ImageIcon icon8 = new ImageIcon("./img/8S.png");
     ImageIcon icon9 = new ImageIcon("./img/9S.png");
     ImageIcon icon10 = new ImageIcon("./img/10S.png");
+
     //ボタン作成
     private final JButton s1Button;
     private final JButton s2Button;
@@ -32,6 +34,7 @@ public class MainWindow {
     private final JButton s8Button;
     private final JButton s9Button;
     private final JButton s10Button;
+    
     
     
   //コンストラクタ
@@ -49,12 +52,13 @@ public class MainWindow {
         // 自由レイアウトに変更する
         canvas.setLayout(null);
 
+
         //ラベル
         messageLabel = new JLabel("どれにしますか・・？");
         messageLabel.setBounds(20, 20, 400, 30);
         canvas.add(this.messageLabel);
         gazouLabel = new JLabel();
-        gazouLabel.setBounds(40, 250, 100, 100);
+        gazouLabel.setBounds(20, 250, 100, 100);
         gazouLabel.setIcon(icon1);
         canvas.add(gazouLabel);
 
