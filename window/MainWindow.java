@@ -1,6 +1,7 @@
 package window;
 import java.awt.*;
 import javax.swing.*;
+import window.num.ransuu;
 
 public class MainWindow {
     //ゲームを表示するフレーム
@@ -35,10 +36,14 @@ public class MainWindow {
     private final JButton s9Button;
     private final JButton s10Button;
     
+    //ボタン用乱数生成
+    int[] x=new int[10];
+    String[] ico={"icon1","icon2","icon3","icon4","icon5","icon6","icon7","icon8","icon9","icon10"};
     
-    
-  //コンストラクタ
-  public MainWindow(){
+    //コンストラクタ
+    public MainWindow(){
+        this.x=ransuu.ransuuseisei();
+        //乱数呼び出し
         // フレームタイトルを指定したフレームの生成
         this.frame = new JFrame("Suikensuijaku");
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +64,7 @@ public class MainWindow {
         canvas.add(this.messageLabel);
         gazouLabel = new JLabel();
         gazouLabel.setBounds(20, 250, 100, 100);
-        gazouLabel.setIcon(icon1);
+        gazouLabel.setIcon(icon);
         canvas.add(gazouLabel);
 
         //ボタン
