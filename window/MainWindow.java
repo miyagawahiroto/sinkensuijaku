@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import window.num.*;
 
-public class MainWindow {
+public class MainWindow{
     //ゲームを表示するフレーム
     public JFrame frame;
     //メッセージを表示するラベル
@@ -77,7 +77,9 @@ public class MainWindow {
     //ボタン用乱数生成
     int[] x=new int[26];
     //icon配列
-    ImageIcon[] ico={icon,iconS1,iconS2,iconS3,iconS4,iconS5,iconS6,iconS7,iconS8,iconS9,iconS10,iconS11,iconS12,iconS13,iconH1,iconH2,iconH3,iconH4,iconH5,iconH6,iconH7,iconH8,iconH9,iconH10,iconH11,iconH12,iconH13,};
+    ImageIcon[] ico={icon,iconS1,iconS2,iconS3,iconS4,iconS5,iconS6,iconS7,iconS8,iconS9,iconS10,iconS11,iconS12,iconS13,iconH1,iconH2,iconH3,iconH4,iconH5,iconH6,iconH7,iconH8,iconH9,iconH10,iconH11,iconH12,iconH13};
+    //カードに持たせる番号
+    int[] cardnumber = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13};
     //ボタン配列
     JButton[] jbtn=new JButton[26];
 
