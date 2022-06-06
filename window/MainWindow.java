@@ -12,7 +12,7 @@ public class MainWindow{
     private JLabel gazouLabel;
     //使用したカードを入れる
     int con1=0;
-    int[] card=new int[2];
+    int[][] card=new int[2][2];
     
     
     //アイコン作成(スペード)
@@ -289,19 +289,23 @@ public class MainWindow{
     //ランダムにカードを作成してsentakuメソッドを起動
     public ImageIcon Bottonsakusei(int m,int z){
         if(z!=100)
-        sentaku(z);
+        sentaku(m,z);
         return ico[m];
     }
 
-    //三回目を引いたら裏面にする
-    public void sentaku(int kado) {
+    //カードナンバーが違うと裏面にする
+    public void sentaku(int m,int kado) {
         if(con1==2){
-            jbtn[card[0]-1].setIcon(Bottonsakusei(0,100));
-            jbtn[card[1]-1].setIcon(Bottonsakusei(0,100));
-            card[0]=kado;
+            if(cardnumber[card[0][1]]!=cardnumber[card[1][1]]){
+            jbtn[card[0][0]-1].setIcon(Bottonsakusei(0,100));
+            jbtn[card[1][0]-1].setIcon(Bottonsakusei(0,100));
+            }
+            card[0][0]=kado;
+            card[0][1]=m;
             con1=1;
         }else{
-            card[con1]=kado;
+            card[con1][0]=kado;
+            card[con1][1]=m;
             con1++; 
         }
     }
