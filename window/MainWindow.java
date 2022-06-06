@@ -10,9 +10,9 @@ public class MainWindow{
     private JLabel messageLabel;
     //画像を表示するラベル
     private JLabel gazouLabel;
-    //使用したカードを入れる
-    int con1=0;
-    int[][] card=new int[2][2];
+    //獲得ポイント
+    int point=0;
+    
     
     
     //アイコン作成(スペード)
@@ -83,13 +83,24 @@ public class MainWindow{
     //ボタン配列
     JButton[] jbtn=new JButton[26];
 
+
+    //現在のカードNoを格納する
+    String nowcard1;
+    String nowcard2;
+    //正解したカードのボタンNoを格納する
+    String seikainumber="";
+
+    //使用したカードを入れる
+    int con1=0;
+    int[][] card=new int[2][2];
+
     //コンストラクタ
     public MainWindow(){
         //乱数呼び出し
         this.x=ransuu.ransuuseisei(26);
         
         // フレームタイトルを指定したフレームの生成
-        this.frame = new JFrame("Suikensuijaku");
+        this.frame = new JFrame("Shikeisuijaku");
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // フレームサイズの指定
@@ -293,15 +304,27 @@ public class MainWindow{
         return ico[m];
     }
 
-    //カードナンバーが違うと裏面にする
+    //カードの裏表を管理するメソッド
     public void sentaku(int m,int kado) {
+        //正解したカードNoを押下しても反応しない
+        if(seikainumber.contains(" "+kado+" ")==false)
         if(con1==2){
             if(cardnumber[card[0][1]]!=cardnumber[card[1][1]]){
+                //カード番号が違うと裏面に戻す
             jbtn[card[0][0]-1].setIcon(Bottonsakusei(0,100));
             jbtn[card[1][0]-1].setIcon(Bottonsakusei(0,100));
+            }else{
+                nowcard1  = Integer.toString(card[0][0]);
+                nowcard2  = Integer.toString(card[1][0]);
+                //正解したカードNoを格納する
+                seikainumber+=" "+nowcard1+" "+" "+nowcard2+" ";
+                point++;
+                this.messageLabel.setText("ポイント"+point+"点");
             }
             card[0][0]=kado;
             card[0][1]=m;
+            con1=1;
+        }else if(con1==1&&card[0][1]==m){
             con1=1;
         }else{
             card[con1][0]=kado;
